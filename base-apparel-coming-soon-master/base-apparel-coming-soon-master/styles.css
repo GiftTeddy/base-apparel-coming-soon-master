@@ -1,0 +1,142 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+:root {
+    --metric-rhythm: 2rem;
+    --metric-interaction-padding: 0.6rem 0.6rem;
+}
+
+body {
+    height: 100vh;
+    font-family: 'Josefin Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 65% 35%;
+    grid-template-areas:
+        "header side-pic"
+        "content side-pic"
+        "content side-pic"
+        "footer side-pic";
+    background-image: url('https://res.cloudinary.com/gb2020/image/upload/v1589217438/base%20apparel%20coming%20soon/bg-pattern-desktop_ohtovt.svg');
+    background-size: 100% 100%;
+}
+
+.hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: auto;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap;
+}
+
+.content {
+    --flow-space: var(--metric-rhythm);
+}
+
+.content > * + * {
+    margin-top: 1em;
+    margin-top: var(--flow-space);
+}
+
+header {
+    grid-area: header;
+    height: 100px;
+    padding-top: 3rem;
+    padding-left: 10rem;
+}
+
+.side-pic {
+    grid-area: side-pic;
+    background-image: url('https://res.cloudinary.com/gb2020/image/upload/v1589217439/base%20apparel%20coming%20soon/hero-desktop_qd7w4w.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.main-content {
+    grid-area: content;
+    max-width: 800px;
+    padding-left: 10rem;
+}
+
+h2 {
+    font-size: 4rem;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    word-spacing: 100vw;
+    line-height: 1.1em;
+}
+
+.pink-text {
+    font-weight: 300;
+    color: hsl(0, 36%, 70%);
+    letter-spacing: 0.33em;
+}
+
+.main-content p {
+    color: hsl(0, 36%, 70%);
+    line-height: 1.5em;
+    width: 49ch;
+}
+
+.form-content {
+    --flow-space: 3.5rem;
+}
+
+.form-group {
+    display: flex;
+    position: relative;
+    width: 48ch;
+    border: 1px solid hsl(0, 36%, 70%);
+    border-radius: 999px;
+    transition: 0.2s;
+    --flow-space: 0.5rem;
+}
+
+.form-group:focus-within {
+    border-width: 2px;
+}
+
+.form-group label {
+    position: absolute;
+    text-transform: capitalize;
+    height: 100%;
+    color: hsl(0, 36%, 70%);
+    display: flex;
+    align-items: center;
+    padding-left: 2rem;
+    width: 100%;
+    transition: 0.2s;
+}
+
+
+.form-group input {
+    border: none;
+    background-color: transparent;
+    outline: 0;
+    padding: 20px 0 20px 2rem;
+    flex: auto;
+}
+
+input:focus + label,
+input:not([value=""]) + label {
+    align-items: flex-start;
+    opacity: 0.75;
+    transform: translateY(-1.5rem);
+}
+
+.submit-button {
+    z-index: 1;
+    background-image: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+    min-width: 7.5rem;
+    border-radius: 999px;
+    cursor: pointer;
+}
